@@ -1,3 +1,5 @@
+import ProductList from './app' ;
+
 const data = [
 				{
 					title: "Flower Pot",
@@ -12,9 +14,7 @@ const data = [
 					imageUrl: "assets/images/headphones.jpg"
 				}
 			 ] ;
-
 const shop= document.getElementById ("shop") ;
-let cards= [] ;	
 
 class CardTile {
 	
@@ -52,7 +52,10 @@ class CardTile {
 	}
 	
 	handleClick (event) {
-		alert ("u clicked on card number: " + this.id) ;
+		let cardClicked= document.getElementById (this.id) ;
+		cardClicked.children[1].setAttribute ("style", "background: blue") ;
+
+		ProductList pl= new ProductList () ;
 	}
 
 	getCardTile () {

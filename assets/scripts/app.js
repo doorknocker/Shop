@@ -21,6 +21,10 @@ class ProductList{
 		   this.productList.push (new Product ("Flower Pot", "12.99", "")) ;
 		   this.productList.push (new Product ("Mug", "5.99", "")) ;
 	   }
+
+	   pushListItem (title, price, imageUrl= ""){
+		   this.productList.push (new Product (title, price, imageUrl)) ;
+	   }
 	   
 	   currentCartValue (){	   
 		   this.totalCost= 0 ;
@@ -29,32 +33,8 @@ class ProductList{
 		    
 		   return this.totalCost ;
 	   }	   
-	   
-	   render (){
-		   let list= document.createElement ("ul") ;		   
-		   
-		   for (let item of this.productList){			   
-				let listItem= document.createElement ("li") ;
-				listItem.innerHTML= `Description: ${item.desc}, Price: \$${item.price}` ;
-				list.append (listItem) ;			
-	       }	   
-		   app.append (list) ;
-		}
 }
 
-
-
-let pdList= new ProductList () ;
-pdList.createList () ;
-pdList.render () ;
-
-app.append (totalValueBtn) ;
-app.append (totalValue) ;
-
-totalValueBtn.addEventListener ("click", function (){
-									totalValue.innerHTML= "" ;
-									totalValue.innerHTML= pdList.currentCartValue().toString () ;
-								}) ;
 								
 
 											
